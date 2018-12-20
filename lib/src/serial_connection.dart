@@ -121,14 +121,14 @@ class SerialConnection {
         _txCharacteristic == null) {
       throw SerialConnectionNotReadyException();
     }
-
     int offset = 0;
     final int chunkSize = _provider._config.lengthOfCharacteristic;
     while (offset < raw.length) {
       var chunk = raw.skip(offset).take(chunkSize).toList();
       offset += chunkSize;
-      await _device.writeCharacteristic(_txCharacteristic, chunk,
-          type: CharacteristicWriteType.withResponse);
+      // await _device.writeCharacteristic(_txCharacteristic, chunk,
+      //     type: CharacteristicWriteType.withResponse);
+      await _device.writeCharacteristic(_txCharacteristic, chunk);
     }
   }
 
@@ -201,6 +201,8 @@ class SerialConnection {
   }
 
   void _onIncomingData(List<int> data) {
+    print(
+        'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW');
     if (_onDataReceivedController.hasListener) {
       _onDataReceivedController.add(data);
     }

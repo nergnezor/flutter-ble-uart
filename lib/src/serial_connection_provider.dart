@@ -41,7 +41,7 @@ class SerialConnectionProvider {
   /// the timeout is set to 10 seconds.
   Future<Iterable<BluetoothDevice>> simplifiedScan({Duration timeout}) async {
     if (timeout == null) {
-      timeout = Duration(seconds: 10);
+      timeout = Duration(seconds: 3);
     }
 
     Map<String, BluetoothDevice> devices = {};
