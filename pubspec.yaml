@@ -10,7 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_blue: ^0.4.0
+  # flutter_blue: ^0.4.0
+  flutter_blue:
+    git: https://github.com/nergnezor/flutter_blue.git
 
 dev_dependencies:
   flutter_test:
